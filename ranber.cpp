@@ -25,6 +25,3 @@ int main()
 
     return 0;
 }
-
-int main1()//only test
-{}
