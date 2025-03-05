@@ -13,14 +13,19 @@ int ran_ber()
 
     return dis(gen);  // 生成随机数并返回
 }
-//调用ran_ber检查是否输出随机数
+
+//尝试输出5*5随机数字表
 int main()
 {
-    int rand=0;
-    for(int i=0;i<10;i++)
+    int table[5][5]={'0'};
+    for(int i=0;i<5;i++)
     {
-        rand=ran_ber();
-        cout<<rand<<endl;
+        for(int j=0;j<5;j++)
+        {
+            table[i][j]=ran_ber();
+            cout<<table[i][j]<<" ";
+        }
+        cout<<endl;
     }
 
     return 0;
