@@ -18,12 +18,40 @@ int ran_ber()
 int main()
 {
     int table[5][5]={'0'};
-    for(int i=0;i<5;i++)
+    table[0][0]=ran_ber();
+    for(int i1=1;i1<5;i1++)
     {
-        for(int j=0;j<5;j++)
+        AGAIN1:
+        table[0][i1]=ran_ber();
+        for(int i3=0;i3<i1;i3++)
         {
-            table[i][j]=ran_ber();
-            cout<<table[i][j]<<" ";
+            if(table[0][i1]==table[0][i3])
+            {
+                goto AGAIN1;
+            }
+        }
+
+    }//填充第一行
+
+    //尝试填充完成其他行
+    for(int i2=1;i2<5;i2++)
+    {
+        for(int i3=0;i3<5;i3++)
+        {
+            AGAIN2:
+            table[i2][i3]=ran_ber();
+            if(table[i2][i3]==table[i2-1][i3])
+            {
+                goto AGAIN2;
+            }
+        }
+    }
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            cout << table[i][j] << " ";
         }
         cout<<endl;
     }
